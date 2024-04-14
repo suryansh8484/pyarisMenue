@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS */
+        .menu-section {
+            display: none; /* Initially hide all sections */
+            margin-top: 30px;
+        }
+        .menu-section.active {
+            display: block; /* Show active section */
+        }
+        .navigation-buttons {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .nav-button {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5 mb-4">Menu</h1>
+
+        <!-- Navigation Buttons -->
+        <div class="navigation-buttons">
+            <button class="nav-button btn btn-primary" onclick="showSection('sandwiches')">Sandwiches</button>
+            <button class="nav-button btn btn-primary" onclick="showSection('bowl')">Bowl</button>
+            <button class="nav-button btn btn-primary" onclick="showSection('burger')">Burger</button>
+            <button class="nav-button btn btn-primary" onclick="showSection('chinese')">Chinese</button>
+            <button class="nav-button btn btn-primary" onclick="showSection('shakes')">Shakes</button>
+            <button class="nav-button btn btn-primary" onclick="showSection('pizza')">Pizza</button>
+            <button class="nav-button btn btn-primary" onclick="showSection('combos')">Combos</button>
+        </div>
+
+        <!-- Sandwiches Section -->
+        <div class="menu-section" id="sandwiches">
+            <h2>Sandwiches</h2>
+            <ul>
+                <li>Vegi Delight (2 pieces) - ₹75</li>
+                <li>Grilled Chana Sandwich (2 pieces) - ₹110</li>
+                <li>Corn And Cheese - ₹120</li>
+                <li>Grilled Cheese (4 pieces) - ₹140</li>
+                <li>Grilled Paneer Sandwich - ₹150</li>
+            </ul>
+        </div>
+
+        <!-- Bowl Section -->
+        <div class="menu-section" id="bowl">
+            <h2>Bowl</h2>
+            <ul>
+                <li>Bowl - ₹129</li>
+                <li>Rajma Chaval - ₹100</li>
+                <li>Chola Chaval - ₹100</li>
+                <li>Arthur Dal Chaval - ₹100</li>
+            </ul>
+        </div>
+
+        <!-- Burger Section -->
+        <div class="menu-section" id="burger">
+            <h2>Burger</h2>
+            <ul>
+                <li>Veg Burger - ₹99</li>
+                <li>Paneer Burger - ₹119</li>
+            </ul>
+        </div>
+
+        <!-- Chinese Section -->
+        <div class="menu-section" id="chinese">
+            <h2>Chinese</h2>
+            <ul>
+                <li>Chilli Potato - ₹150</li>
+                <li>Honey Chilli Potato - ₹160</li>
+                <li>Veg Momos - ₹100 per portion (6 pieces)</li>
+                <li>Paneer Momos - ₹120 per portion (6 pieces)</li>
+                <li>Fried Veg Momos - ₹110 per portion (6 pieces)</li>
+                <li>Fried Paneer Momos - ₹130 per portion (6 pieces)</li>
+                <li>Gobi Manchurian - ₹180</li>
+                <li>Veg Manchurian - ₹190</li>
+                <li>Hakka Noodles - ₹160</li>
+                <li>Paneer Chilli - ₹200</li>
+                <li>Veg Fried Rice - ₹150</li>
+                <li>Chilli Paneer - ₹220</li>
+                <li>Veg Manchow Soup - ₹130</li>
+                <li>Veg Spring Rolls - ₹120</li>
+                <li>Corn Manchurian - ₹180</li>
+                <li>Chilli Mushroom - ₹190</li>
+            </ul>
+        </div>
+
+        <!-- Shakes Section -->
+        <div class="menu-section" id="shakes">
+            <h2>Shakes</h2>
+            <ul>
+                <li>Cold Coffee - ₹129</li>
+                <li>Oreo - ₹129</li>
+                <li>KitKat - ₹129</li>
+                <li>Snickers - ₹129</li>
+                <li>Vanilla - ₹129</li>
+            </ul>
+        </div>
+
+        <!-- Pizza Section -->
+        <div class="menu-section" id="pizza">
+            <h2>Pizza</h2>
+            <ul>
+                <li><strong>Size:</strong></li>
+                <ul>
+                    <li>8-inch - ₹200</li>
+                    <li>12-inch - ₹350</li>
+                    <li>16-inch - ₹500</li>
+                </ul>
+                <li><strong>Types:</strong></li>
+                <ul>
+                    <li>Margherita</li>
+                    <li>Veggie Supreme</li>
+                    <li>Paneer Tikka</li>
+                    <li>Spinach and Corn</li>
+                </ul>
+            </ul>
+        </div>
+
+        <!-- Combos Section -->
+        <div class="menu-section" id="combos">
+            <h2>Combos</h2>
+            <ul>
+                <li class="combo-option">Sandwich Combo (Any 2 Sandwiches) - ₹250</li>
+                <li class="combo-option">Burger Combo (Any 1 Burger + Fries + Soft Drink) - ₹199</li>
+                <li class="combo-option">Chinese Combo (Any 1 Chinese Dish + Hakka Noodles/Fried Rice + Soft Drink) - ₹299</li>
+                <!-- Additional combo options can be added here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle menu navigation -->
+    <script>
+        // Function to show and hide menu sections based on the selected category
+        function showSection(sectionId) {
+            // Get all menu sections
+            var sections = document.querySelectorAll('.menu-section');
+
+            // Hide all menu sections
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Show the selected menu section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Initially show the first section (e.g., sandwiches)
+        showSection('sandwiches');
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
